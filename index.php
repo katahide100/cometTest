@@ -159,8 +159,8 @@ function timeOutCheck(){
 		location.reload();
 	}
 }
-// 40秒毎に更新チェック
- setInterval(timeOutCheck, 40000);
+// 10秒毎に更新チェック
+ setInterval(timeOutCheck, 10000);
 
 });
 </script>
