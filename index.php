@@ -152,10 +152,10 @@ init();
 
 function timeOutCheck(){
 	var nowTime = new Date().getTime();
-	$("#lastUpdate").html(lastUpdate + 60000);
+	$("#lastUpdate").html(lastUpdate + 40000);
 	$("#nowTime").html(nowTime);
-	// 60秒以上更新がない場合はページ再読み込み
-	if(nowTime > lastUpdate + 60000){
+	// 40秒以上更新がない場合はページ再読み込み
+	if(nowTime > lastUpdate + 40000){
 		location.reload();
 	}
 }

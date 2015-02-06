@@ -12,7 +12,7 @@ switch($_POST['mode']){
 
 	case 'chkUpd' :
 		$file = file_get_contents('./test.txt');
-		$endTime = time() + 30;
+		$endTime = time() + 15;
 
 		while(1){
 			if($file != file_get_contents('./test.txt')){
