@@ -16,6 +16,7 @@ $(function() {
             },
             url: 'comet.php',
             success: function(data) {
+				lastUpdate = new Date().getTime();
                 disp(data);
                 start();
             }
@@ -30,6 +31,7 @@ $(function() {
             },
             url: 'comet.php',
             success: function(data) {
+				lastUpdate = new Date().getTime();
                 disp(data);
                 start();
             }
@@ -145,9 +147,20 @@ $(function() {
 //         });
 //     }
 //     var timerId = setTimeout("location.reload()", 30000);
-//     setInterval(stop, 6000);
+init();
 
-    init();
+
+function timeOutCheck(){
+	var nowTime = new Date().getTime();
+	$("#lastUpdate").html(lastUpdate + 60000);
+	$("#nowTime").html(nowTime);
+	// 60秒以上更新がない場合はページ再読み込み
+	if(nowTime > lastUpdate + 60000){
+		location.reload();
+	}
+}
+// 40秒毎に更新チェック
+ setInterval(timeOutCheck, 40000);
 
 });
 </script>
@@ -155,6 +168,8 @@ $(function() {
 <body>
     <input type="text" name="input" id="input" value="">
     <button id="btn">input</button>
+	<p id="lastUpdate"></p>
+	<p id="nowTime"></p>
     <p id="result"></p>
     <button id="shuffle">shuffle</button>
     <br>
